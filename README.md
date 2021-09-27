@@ -1,3 +1,5 @@
+## [Click here for Live Demo of Tinder clone app](https://tinder-clone-73e21.web.app)
+
 ## Process of developing application:
 
 **Implemented a Tinder Clone application with MERN Stack (MongoDB, Express, React, Node JS)**
@@ -77,3 +79,12 @@
 - set GET to `http://localhost:8001/tinder/cards` again and check in postman, we get the things we just post
 - Hook up to front-end, go to front-end terminal and stop it then `npm i axios`, then `npm start`
 - After that go MongoDB and check collections, all data are there
+- **Deploy app back-end(node.js) on heroku, front-end on firebase**
+- **Heroku**, create new app, go to backend terminal config the HEROKU, create `.gitignore` write in `node_modules`
+- check logs after push: `heroku logs --tail`, then go setting you will see the link.
+- copy that link then go `axios.js`,
+- **Firebase**, if you don't have then install using `npm i -g firebase-tools` command
+- `firebase login` then `firebase init` -> hosting, use existing project
+- (public): `build`
+- `npm run build` create production build, if make any changes in app you have run this again
+- `firebase deploy`
