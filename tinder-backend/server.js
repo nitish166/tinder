@@ -1,3 +1,5 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 import express from "express";
 import mongoose from "mongoose";
 import Cards from "./dbCards.js";
@@ -5,10 +7,12 @@ import Cors from "cors";
 
 // App config
 
+const dotenv = require("dotenv"); // NPM package to facilitate the loading and use of environment variables.
+dotenv.config(); // Used to initiate dotenv and make your environment variables available throughout your application:
+
 const app = express();
 const port = process.env.PORT || 8001;
-const connection_url =
-  "mongodb+srv://admin:SgSNuEgwsJAVvvPh@cluster0.v3ncw.mongodb.net/tinderdb?retryWrites=true&w=majority";
+const connection_url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.v3ncw.mongodb.net/tinderdb?retryWrites=true&w=majority`;
 
 // Middleware
 

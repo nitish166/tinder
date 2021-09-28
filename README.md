@@ -1,5 +1,9 @@
 ## [Click here for Live Demo of Tinder clone app](https://tinder-clone-73e21.web.app)
 
+- **Disclaimer:** The application does not contain or suggest the internal implementation of tinder.
+  And, it has been design and devloped for the educational purpose during the off office hours.
+  and has no links with real app.
+
 ## Process of developing application:
 
 **Implemented a Tinder Clone application with MERN Stack (MongoDB, Express, React, Node JS)**
@@ -88,3 +92,29 @@
 - (public): `build`
 - `npm run build` create production build, if make any changes in app you have run this again
 - `firebase deploy`
+
+## Tinder System Design requirement :
+
+- Below are the following possible requirement:
+
+  - Storing profiles
+  - Recommendations
+  - Nothing matches and chatting with matches
+  - Storing profiles is trivial except for the image storage
+
+- The distributed file architecture seems best when storing images.
+
+- Direct Messaging or chatting with matches can be done:
+
+  - Using the `XMPP protocol`, which uses web sockets to have peer to peer communications between client and server.
+  - Each connection is build over `TCP`, ensuring that the connection is maintained.
+  - The session micro service can send messages to the receiver based on connection to user mappings.
+
+- Our system should be decoupled as much as possible:
+
+  - we try to maintain accept and reject information on the client. On swiping left or right.
+  - the client can note the action and avoid showing the same user again and again perhaps using bloom filters.
+
+- The server should have a validation engine called the `matcher micro service`, which notes matches and allows or disallows chat between two users.
+
+- The final requirement of recommendations. needs `city wise partitioning` on the user data
